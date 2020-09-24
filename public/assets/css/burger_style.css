@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("/assets/img/background.jpg");
+    background-image: url("/assets/img/burger.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -8,6 +8,7 @@
 
 .jumbotron > h1 {
     font-family: 'Chango', cursive;
+    font-size: 3.5em;
 }
 
 #new-burger {
@@ -19,19 +20,32 @@
 }
 
 #uneaten-header {
+    padding: 10px 0;
+    margin-bottom: 10px;
     background-color: #007BFF;
     color: white;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 #eatbutton, #trashbutton {
     float: right;
+    margin-bottom: 5px;
 }
 
 #devoured-header {
+    padding: 10px 0;
+    margin-bottom: 10px;
     background-color: #f0ad4e;
     color: white;
     text-align: center;
+    font-size: 1.5em;
+}
+
+.panel-body hr {
+    margin-top: 25px;
+}
+
+.eaten, .uneaten {
     font-size: 1.2em;
 }

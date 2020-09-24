@@ -9,7 +9,7 @@ let burger = require("../models/burger.js");
 // Get all burgers from the DB
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
-    var hbsObject = {
+    let hbsObject = {
         burgers: data
     };
     console.log(hbsObject);
@@ -27,10 +27,12 @@ router.post("/api/burgers", function(req, res) {
 
 //Update a burger in the DB
 router.put("/api/burgers/:id", function(req, res) {
-    let condition = "id = " + req.params.id;
-    let col = "devoured = " + req.body.devoured;
+    let conditionCol = "id";
+    let conditionVal = req.params.id;
+    let col = "devoured";
+    let val = req.body.devoured;
 
-    burger.updateOne(col, condition, function(result) {
+    burger.updateOne(col, val, conditionCol, conditionVal, function(result) {
         if (result.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
@@ -42,9 +44,10 @@ router.put("/api/burgers/:id", function(req, res) {
 
 // Delete a burger from the DB
 router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    let conditionCol = "id";
+    let conditionVal = req.params.id;
 
-    burger.deleteOne(condition, function(result) {
+    burger.deleteOne(conditionCol, conditionVal, function(result) {
     if (result.affectedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
